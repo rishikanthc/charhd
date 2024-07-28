@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "charhd"
+version = "0.1.0"
+description = ""
+authors = ["rishikanthc <r3chandr@ucsd.edu>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fire = "*"
+loguru = "*"
+einops = "*"
+jax = {extras = ["cuda12"], version="*"}
+jaxlib = "*"
+torch = [
+  {version = "*", source="torchcpu"}
+]
+
+[[tool.poetry.source]]
+name = "torchcpu"
+url = "https://download.pytorch.org/whl/cpu"
+priority = "explicit"
+
+[tool.poetry.group.dev.dependencies]
+basedpyright = "*"
+ruff = "*"
+pre-commit = "*"
+pytest = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
